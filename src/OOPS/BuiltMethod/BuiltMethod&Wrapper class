@@ -1,0 +1,175 @@
+# ☕ Java — Built-in Libraries & Wrapper Classes
+
+> Java provides powerful **built-in classes** so you don't have to write everything from scratch.
+
+---
+
+## 📌 1. Scanner — Take Input from User
+
+```java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter your age: ");
+        int age = sc.nextInt();
+
+        System.out.println("Hello " + name + ", you are " + age + " years old.");
+        sc.close(); // always close scanner
+    }
+}
+```
+
+| Method | Use |
+|---|---|
+| `sc.nextInt()` | Read integer |
+| `sc.nextDouble()` | Read decimal |
+| `sc.nextLine()` | Read full string |
+| `sc.next()` | Read single word |
+
+---
+
+## 📌 2. Math — Mathematical Operations
+
+> No import needed — `java.lang.Math` is auto-imported.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(Math.max(10, 20));       // 20
+        System.out.println(Math.min(10, 20));       // 10
+        System.out.println(Math.abs(-45));          // 45
+        System.out.println(Math.sqrt(64));          // 8.0
+        System.out.println(Math.pow(2, 5));         // 32.0
+        System.out.println(Math.round(4.7));        // 5
+        System.out.println(Math.random());          // 0.0 to 1.0
+        System.out.println(Math.PI);                // 3.141592...
+    }
+}
+```
+
+---
+
+## 📌 3. Date & Time — `java.time` (Java 8+)
+
+```java
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.LocalDateTime;
+
+public class Main {
+    public static void main(String[] args) {
+        LocalDate date = LocalDate.now();
+        LocalTime time = LocalTime.now();
+        LocalDateTime dt = LocalDateTime.now();
+
+        System.out.println("Date : " + date);   // 2025-01-15
+        System.out.println("Time : " + time);   // 14:30:25.123
+        System.out.println("Both : " + dt);     // 2025-01-15T14:30:25
+    }
+}
+```
+
+| Class | Use |
+|---|---|
+| `LocalDate` | Date only (year, month, day) |
+| `LocalTime` | Time only (hour, min, sec) |
+| `LocalDateTime` | Date + Time together |
+
+---
+
+## 📌 4. File I/O — Read & Write Files
+
+### ✍️ Write to a File
+```java
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        FileWriter fw = new FileWriter("notes.txt");
+        fw.write("Hello, this is Java File I/O!");
+        fw.close();
+        System.out.println("File written successfully!");
+    }
+}
+```
+
+### 📖 Read from a File
+```java
+import java.io.File;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        File file = new File("notes.txt");
+        Scanner sc = new Scanner(file);
+
+        while (sc.hasNextLine()) {
+            System.out.println(sc.nextLine());
+        }
+        sc.close();
+    }
+}
+```
+
+---
+
+## 📌 5. Wrapper Classes — Primitive → Object
+
+> Every primitive type has a **Wrapper Class** that converts it into an object.
+
+| Primitive | Wrapper Class |
+|---|---|
+| `int` | `Integer` |
+| `double` | `Double` |
+| `char` | `Character` |
+| `boolean` | `Boolean` |
+| `float` | `Float` |
+| `long` | `Long` |
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        // int → Integer (Autoboxing)
+        Integer a = 10;
+
+        // Integer → int (Unboxing)
+        int b = a;
+
+        // Useful methods
+        System.out.println(Integer.MAX_VALUE);         // 2147483647
+        System.out.println(Integer.MIN_VALUE);         // -2147483648
+        System.out.println(Integer.parseInt("42"));    // String → int
+        System.out.println(Double.parseDouble("3.14")); // String → double
+        System.out.println(Integer.toBinaryString(10)); // 1010
+        System.out.println(Integer.toHexString(255));   // ff
+    }
+}
+```
+
+### 🔄 Why use Wrapper Classes?
+```java
+// Primitives can't be used in Collections — Wrapper classes can!
+ArrayList<Integer> list = new ArrayList<>();  // ✅
+ArrayList<int> list = new ArrayList<>();      // ❌ won't work
+```
+
+---
+
+## 🧠 Quick Recap
+
+| Library | Package | Use |
+|---|---|---|
+| `Scanner` | `java.util` | Take user input |
+| `Math` | `java.lang` (auto) | Math operations |
+| `LocalDate/Time` | `java.time` | Date and time |
+| `File / FileWriter` | `java.io` | Read/write files |
+| `Integer, Double...` | `java.lang` (auto) | Primitive → Object |
+

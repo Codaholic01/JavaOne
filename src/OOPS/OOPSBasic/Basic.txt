@@ -1,0 +1,163 @@
+# ☕ Java OOP - Complete Notes
+
+> **Object-Oriented Programming** = A way to structure code using **objects** and **classes**.
+
+---
+
+## 📌 1. What is OOP?
+
+OOP lets us create **user-defined data types** called **Classes**.
+
+| Primitive Types | User-Defined Types |
+|---|---|
+| int, float, double, char | Student, Car, Animal |
+
+---
+
+## 📌 2. Class & Object
+
+**Class** = Blueprint (like a car model: Swift, Alto)
+**Object** = Real instance (like *your* Swift car)
+
+```java
+class Student {
+    String name;
+    int rno;
+    double percentage;
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student();  // s1 = object, new = memory allocation
+        s1.name = "Raghav";
+        s1.rno = 78;
+        s1.percentage = 96.5;
+
+        System.out.println(s1.name);        // Raghav
+        System.out.println(s1.rno);         // 78
+        System.out.println(s1.percentage);  // 96.5
+    }
+}
+```
+
+> `Student` → Class (user-defined data type)
+> `s1` → Object
+> `new` → Allocates memory in heap
+
+---
+
+## 📌 3. Array vs Class
+
+| Array | Class |
+|---|---|
+| Stores **same** type of data | Stores **multiple** types (attributes) |
+| `int[] marks = {80, 90, 70}` | `Student s1 = new Student()` |
+
+---
+
+## 📌 4. Passing Object to a Function
+
+Objects can be passed to methods as parameters.
+> ⚠️ Class must be declared **outside** `main()` so all methods can access it.
+
+```java
+class Student {
+    String name;
+    int rno;
+}
+
+public class Main {
+
+    static void printStudent(Student s) {
+        System.out.println(s.name);
+        System.out.println(s.rno);
+    }
+
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        s1.name = "Raghav";
+        s1.rno = 78;
+
+        printStudent(s1);  // passing object to function
+    }
+}
+```
+
+---
+
+## 📌 5. Pass by Reference
+
+- Class objects are **passed by reference** (not by value).
+- The method gets the **memory address** of the same object.
+- Both variables point to the **same object** in memory.
+
+```java
+static void change(Student s) {
+    s.name = "Amit";  // changes the original object!
+}
+```
+
+---
+
+## 📌 6. Access Modifiers
+
+Control **where** a variable/method/class can be accessed.
+
+| Modifier | Accessible From |
+|---|---|
+| `public` | Everywhere (all packages) |
+| `private` | Same class only |
+| `protected` | Same package + subclasses |
+| *(default)* | Same package only |
+
+```java
+class BankAccount {
+    public String ownerName;     // accessible everywhere
+    private double balance;      // only inside BankAccount class
+    protected String branch;     // same package or subclass
+}
+```
+
+---
+
+## 📌 7. Class in Different Files & Packages
+
+- Java allows classes in **separate files** for better organization.
+- Classes can be placed in **packages** (folders) and imported.
+
+```java
+// File: Student.java
+package models;
+
+public class Student {
+    public String name;
+    public int rno;
+}
+```
+
+```java
+// File: Main.java
+import models.Student;
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        s1.name = "Raghav";
+    }
+}
+```
+
+---
+
+## 🧠 Quick Recap
+
+```
+Class     →  Blueprint / Template
+Object    →  Real-world instance
+new       →  Memory allocation (heap)
+Reference →  Objects pass address, not copy
+Access    →  public > protected > default > private
+```
+
+---
+

@@ -1,0 +1,324 @@
+# 📦 Package: javabasic.flowcontrol
+
+# 📄 File: ControlStatements
+
+---
+
+# 🔄 Control Statements in Java
+
+> **Control statements** are used to control the flow of execution of a program based on conditions or repetition.
+
+They help in:
+
+* Decision making
+* Repeating code (loops)
+
+---
+
+# 🧠 Types of Control Statements
+
+1. **Conditional Statements (Decision Making)**
+
+   * `if`, `if-else`
+   * `switch`
+
+2. **Looping Statements (Iteration)**
+
+   * `for`, `while`, `do-while`
+
+3. **Jump Statements**
+
+   * `break`, `continue`
+
+---
+
+# 🔀 1. If Statement
+
+> The `if` statement checks a condition.
+> If the condition is **true**, the block executes; otherwise, it is skipped.
+
+---
+
+## ⚙️ Syntax
+
+```java
+if (condition) {
+    // code executes if condition is true
+}
+```
+
+---
+
+## 🔍 Example
+
+```java
+int a = 10;
+
+if (a > 5) {
+    System.out.println("a is greater than 5");
+}
+```
+
+---
+
+## ⚠️ Comparison Operators (Used in Conditions)
+
+| Operator | Meaning          |
+| -------- | ---------------- |
+| `==`     | Equal to         |
+| `!=`     | Not equal to     |
+| `>`      | Greater than     |
+| `<`      | Less than        |
+| `>=`     | Greater or equal |
+| `<=`     | Less or equal    |
+
+---
+
+# 🔁 2. For Loop
+
+> A `for` loop is used to **repeat a block of code** a specific number of times.
+
+---
+
+## ⚙️ Syntax
+
+```java
+for (initialization; condition; update) {
+    // repeated code
+}
+```
+
+---
+
+## 🔍 Example
+
+```java
+for (int count = 0; count < 5; count++) {
+    System.out.println("Count: " + count);
+}
+```
+
+👉 This loop runs **5 times (0 to 4)**
+
+---
+
+# 🔁 3. While Loop
+
+> The `while` loop executes a block of code **as long as the condition is true**.
+
+---
+
+## ⚙️ Syntax
+
+```java
+while (condition) {
+    // code
+}
+```
+
+---
+
+## 🔍 Example
+
+```java
+int i = 0;
+
+while (i < 5) {
+    System.out.println(i);
+    i++;
+}
+```
+
+---
+
+# 🔁 4. Do-While Loop
+
+> The `do-while` loop executes the block **at least once**, then checks the condition.
+
+---
+
+## ⚙️ Syntax
+
+```java
+do {
+    // code
+} while (condition);
+```
+
+---
+
+## 🔍 Example
+
+```java
+int i = 0;
+
+do {
+    System.out.println(i);
+    i++;
+} while (i < 5);
+```
+
+---
+
+# 🔀 5. Switch Statement
+
+> The `switch` statement selects one block from multiple options.
+
+---
+
+## ⚙️ Syntax
+
+```java
+switch (value) {
+    case 1:
+        break;
+    default:
+}
+```
+
+---
+
+## 🔍 Example
+
+```java
+int day = 2;
+
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+
+    case 2:
+        System.out.println("Tuesday");
+        break;
+
+    default:
+        System.out.println("Invalid");
+}
+```
+
+---
+
+# ➗ 6. Ternary Operator (Conditional Operator)
+
+> The **ternary operator** is a shorthand way of writing an `if-else` statement.
+
+---
+
+## ⚙️ Syntax
+
+```java
+condition ? value_if_true : value_if_false;
+```
+
+---
+
+## 🔍 Example
+
+```java
+int a = 10;
+
+String result = (a > 5) ? "Greater" : "Smaller";
+System.out.println(result);
+```
+
+---
+
+# 🔼 Increment & Decrement
+
+Instead of:
+
+```java
+count = count + 1;
+```
+
+We use:
+
+```java
+count++;
+```
+
+---
+
+## 📊 Shortcut Operators
+
+| Operator | Description         | Example  | Equivalent  |
+| -------- | ------------------- | -------- | ----------- |
+| `++`     | Increment           | `a++`    | `a = a + 1` |
+| `--`     | Decrement           | `a--`    | `a = a - 1` |
+| `+=`     | Add and assign      | `a += 2` | `a = a + 2` |
+| `-=`     | Subtract and assign | `a -= 2` | `a = a - 2` |
+| `*=`     | Multiply and assign | `a *= 3` | `a = a * 3` |
+| `/=`     | Divide and assign   | `a /= 4` | `a = a / 4` |
+| `%=`     | Modulus and assign  | `a %= 5` | `a = a % 5` |
+
+---
+
+# 🔄 Break & Continue
+
+```java
+break;     // exits loop
+continue;  // skips current iteration
+```
+
+---
+
+# 🧱 Blocks of Code
+
+> A **block of code** is a group of statements enclosed in `{ }`
+
+---
+
+## ⚙️ Example
+
+```java
+if (true) {
+    System.out.println("Line 1");
+    System.out.println("Line 2");
+}
+```
+
+---
+
+# ⚠️ Important Points
+
+* Condition always returns **boolean (true/false)**
+* Loop runs until condition becomes **false**
+* `do-while` runs at least once
+* `break` stops execution
+* `continue` skips iteration
+* Always use `{ }` for readability
+
+---
+
+## 🚀 Quick Example
+
+```java
+class Demo {
+    public static void main(String[] args) {
+
+        int number = 3;
+
+        if (number > 0) {
+            System.out.println("Positive number");
+        }
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Loop: " + i);
+        }
+    }
+}
+```
+
+---
+
+# ✅ Summary
+
+* Control statements manage **program flow**
+* `if`, `switch` → decision making
+* `for`, `while`, `do-while` → loops
+* Ternary → short condition
+* `break`, `continue` → flow control
+* `{ }` define a block of code
+
+---

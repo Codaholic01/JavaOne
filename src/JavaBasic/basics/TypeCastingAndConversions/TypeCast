@@ -1,0 +1,177 @@
+# 📦 Package: javabasic.basics
+
+# 📄 File: TypeCasting
+
+---
+
+# 🔄 Type Casting & Conversion in Java
+
+> **Type Casting** is the process of converting one data type into another.
+
+It is required when:
+
+* Assigning one type to another
+* Performing operations between different data types
+
+---
+
+# 🧠 Key Idea
+
+* Smaller → Bigger = automatic
+* Bigger → Smaller = manual
+
+---
+
+# 🔢 Types of Type Casting
+
+---
+
+## 1. 🔼 Implicit Casting (Widening)
+
+> Done automatically by Java
+> Converts **smaller data type → larger data type**
+
+---
+
+### 📊 Flow
+
+```id="tc1"
+byte → short → int → long → float → double
+```
+
+---
+
+### 🔍 Example
+
+```java id="tc2"
+int a = 10;
+double b = a;  // automatic conversion
+
+System.out.println(b);  // 10.0
+```
+
+---
+
+### ✅ Features
+
+* No data loss
+* Safe conversion
+* No explicit code required
+
+---
+
+## 2. 🔽 Explicit Casting (Narrowing)
+
+> Done manually by programmer
+> Converts **larger data type → smaller data type**
+
+---
+
+### 🔍 Example
+
+```java id="tc3"
+double x = 10.75;
+int y = (int) x;  // manual casting
+
+System.out.println(y);  // 10
+```
+
+---
+
+### ⚠️ Features
+
+* Data loss may occur
+* Decimal part is removed
+* Requires explicit syntax
+
+---
+
+# 🔄 Type Conversion (Special Case)
+
+> Converting between **different types (like String ↔ int)**
+
+---
+
+### 🔍 Example
+
+```java id="tc4"
+String str = "100";
+int num = Integer.parseInt(str);
+
+System.out.println(num + 50);  // 150
+```
+
+---
+
+### 🔁 Reverse Conversion
+
+```java id="tc5"
+int num = 200;
+String str = String.valueOf(num);
+```
+
+---
+
+# ⚠️ Important Points
+
+* Implicit = safe
+* Explicit = risk of data loss
+* Casting affects **precision**
+* Required in:
+
+  * calculations
+  * input handling
+
+---
+
+# 🔗 Related Topics (Very Important)
+
+👉 Connected concepts:
+
+* **Data Types** → defines conversion rules
+* **Variables** → stores converted values
+* **Input (Scanner/BufferedReader)** → input comes as String
+* **Math Class** → returns double values
+* **Operators** → mixed type operations
+
+---
+
+# 🧠 Real Understanding
+
+* Use implicit when possible
+* Use explicit when necessary
+* Always check for **data loss**
+
+---
+
+# 🚀 Quick Example
+
+```java id="tc6"
+class Demo {
+    public static void main(String[] args) {
+
+        int a = 10;
+        double b = a;   // implicit
+
+        double x = 9.8;
+        int y = (int) x;  // explicit
+
+        System.out.println(b); // 10.0
+        System.out.println(y); // 9
+    }
+}
+```
+
+---
+
+# ✅ Summary
+
+* Type casting = converting data types
+* Two types:
+
+  * Implicit (automatic)
+  * Explicit (manual)
+* Conversion also includes String ↔ number
+* Important for real-world programs
+
+---

@@ -1,0 +1,177 @@
+# ☕ Java — Constructors
+
+> A **Constructor** is a special method that is automatically called when an object is created using `new`.
+
+---
+
+## 📌 Key Rules
+
+- Same name as the class
+- No return type (not even `void`)
+- Automatically called when object is created
+- Used to **initialize** the object
+- Can accept parameters
+
+---
+
+## 📌 Types of Constructors
+
+### 1. Default Constructor
+> Provided by Java **automatically** if you write NO constructor at all.
+
+```java
+class Car {
+    String brand;
+    int speed;
+    // Java adds this silently → Car() {}
+}
+
+Car c1 = new Car(); // works fine
+```
+
+---
+
+### 2. No-arg Constructor
+> You write it **manually** with no parameters.
+
+```java
+class Car {
+    String brand;
+    int speed;
+
+    Car() {
+        brand = "Unknown";
+        speed = 0;
+    }
+}
+```
+
+---
+
+### 3. Parameterized Constructor
+> Accepts arguments to set values **at object creation** — cleanest way!
+
+```java
+class Car {
+    String brand;
+    int speed;
+
+    Car(String brand, int speed) {
+        this.brand = brand;   // this → refers to class variable
+        this.speed = speed;
+    }
+
+    void drive() {
+        System.out.println(brand + " is driving at " + speed + " km/h");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car c1 = new Car("BMW", 200);
+        Car c2 = new Car("Lambo", 250);
+
+        c1.drive();  // BMW is driving at 200 km/h
+        c2.drive();  // Lambo is driving at 250 km/h
+    }
+}
+```
+
+---
+
+## 📌 this Keyword
+
+> `this` refers to the **current object's variable** inside the constructor.
+> Used when parameter name and class variable name are the **same**.
+
+```java
+Car(String brand, int speed) {
+    this.brand = brand;  // this.brand = class variable
+                         // brand      = parameter
+    this.speed = speed;
+}
+```
+
+---
+
+## 📌 Constructor Overloading
+
+> Multiple constructors in the same class with **different parameters**.
+> Java picks the right one based on arguments passed.
+
+```java
+class Student {
+    String name;
+    int age;
+
+    Student() {
+        name = "Unknown";
+        age = 0;
+    }
+
+    Student(String name) {
+        this.name = name;
+        age = 0;
+    }
+
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student();               // Unknown, 0
+        Student s2 = new Student("Raghav");       // Raghav, 0
+        Student s3 = new Student("Raghav", 20);   // Raghav, 20
+    }
+}
+```
+
+---
+
+## 📌 Calling Constructor from Constructor — `this()`
+
+```java
+class Student {
+    String name;
+    int age;
+
+    Student() {
+        this("Unknown", 0);  // calls parameterized constructor
+    }
+
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+```
+
+---
+
+## ⚠️ Important Rules to Remember
+
+| Rule | Detail |
+|---|---|
+| Default constructor | Auto-provided **only if** you write NO constructor |
+| Parameterized added | Java **removes** default constructor automatically |
+| Fix | Add a no-arg constructor manually if needed |
+| Not inherited | Constructors are **never** inherited by subclasses |
+| `this()` | Must be the **first line** inside constructor |
+
+---
+
+## 🧠 Quick Recap
+
+```
+Constructor        →  Initializes object, auto-called on new
+No return type     →  Not even void
+Same name          →  Must match class name exactly
+this.variable      →  Refers to class variable (not parameter)
+Overloading        →  Multiple constructors, different parameters
+this()             →  Call one constructor from another
+Not inherited      →  Subclass does not get parent's constructor
+```
+

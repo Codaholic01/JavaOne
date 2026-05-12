@@ -1,0 +1,146 @@
+# 📦 Package: AboutJava
+
+# 📄 File: ArithmeticOperators
+
+---
+
+# ➕ Arithmetic Operators in Java
+
+> **Arithmetic operators** are used to perform basic mathematical operations on variables and values.
+
+These operators work mainly with **numeric data types** (`int`, `float`, `double`, etc.).
+
+---
+
+## 🔢 List of Arithmetic Operators
+
+Assume:
+
+```java
+int a = 15;
+int b = 6;
+```
+
+| Operator | Operation      | Example | Result |
+| -------- | -------------- | ------- | ------ |
+| `+`      | Addition       | `a + b` | 21     |
+| `-`      | Subtraction    | `a - b` | 9      |
+| `*`      | Multiplication | `a * b` | 90     |
+| `/`      | Division       | `a / b` | 2      |
+| `%`      | Modulus        | `a % b` | 3      |
+
+---
+
+## ⚙️ Explanation of Each Operator
+
+### ➕ Addition (`+`)
+
+* Adds two values
+
+```java
+int sum = a + b;  // 21
+```
+
+---
+
+### ➖ Subtraction (`-`)
+
+* Subtracts one value from another
+
+```java
+int diff = a - b;  // 9
+```
+
+---
+
+### ✖️ Multiplication (`*`)
+
+* Multiplies two values
+
+```java
+int product = a * b;  // 90
+```
+
+---
+
+### ➗ Division (`/`)
+
+* Divides one value by another
+
+```java
+int result = a / b;  // 2
+```
+
+👉 Important:
+
+* If both operands are integers → result is **integer (no decimal)**
+* Decimal part is **discarded**, not rounded
+
+---
+
+### 🔁 Modulus (`%`)
+
+* Returns **remainder** after division
+
+```java
+int rem = a % b;  // 3
+```
+
+👉 Very useful for:
+
+* Checking even/odd numbers
+* Loop conditions
+* Cyclic operations
+
+---
+
+## ⚠️ Important Points
+
+* Division by zero is **not allowed**
+
+```java
+int x = 10 / 0;  // Runtime Error
+```
+
+* For accurate division:
+
+```java
+double result = (double) a / b;  // 2.5
+```
+
+* Operators follow **precedence rules**:
+
+  ```
+  *, /, %  → higher priority  
+  +, -     → lower priority  
+  ```
+
+---
+
+## 🚀 Quick Example
+
+```java
+class Demo {
+    public static void main(String[] args) {
+        int a = 15, b = 6;
+
+        System.out.println(a + b);  // 21
+        System.out.println(a - b);  // 9
+        System.out.println(a * b);  // 90
+        System.out.println(a / b);  // 2
+        System.out.println(a % b);  // 3
+    }
+}
+```
+
+---
+
+# ✅ Summary
+
+* Arithmetic operators perform **basic calculations**
+* Work with numeric data types
+* Key operators: `+`, `-`, `*`, `/`, `%`
+* Integer division removes decimal part
+* `%` gives remainder (very important in logic building)
+
+---

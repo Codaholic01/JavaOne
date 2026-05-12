@@ -1,0 +1,153 @@
+# 📦 Package: AboutJava
+
+# 📄 File: CharacterEscapeCodes
+
+---
+
+# 🔤 Character Escape Codes in Java
+
+> **Escape sequences** are special character combinations used to represent characters that cannot be typed directly using the keyboard.
+
+They are written using a **backslash (`\`)** followed by a character.
+
+---
+
+## 🔢 Common Escape Sequences
+
+| Code | Description            |
+| ---- | ---------------------- |
+| `\n` | New Line               |
+| `\t` | Tab (horizontal space) |
+| `\b` | Backspace              |
+| `\r` | Carriage Return        |
+| `\\` | Backslash (`\`)        |
+| `\'` | Single Quote (`'`)     |
+| `\"` | Double Quote (`"`)     |
+
+---
+
+## ⚙️ Explanation
+
+### 🔽 New Line (`\n`)
+
+* Moves cursor to next line
+
+```java id="c1"
+System.out.println("Hello\nWorld");
+```
+
+---
+
+### 🔲 Tab (`\t`)
+
+* Adds horizontal spacing
+
+```java id="c2"
+System.out.println("Hello\tWorld");
+```
+
+---
+
+### 🔙 Backspace (`\b`)
+
+* Removes previous character
+
+```java id="c3"
+System.out.println("Helloo\b");
+```
+
+---
+
+### 🔁 Carriage Return (`\r`)
+
+* Moves cursor to beginning of line
+
+```java id="c4"
+System.out.println("Hello\rJava");
+```
+
+---
+
+### 🔗 Backslash (`\\`)
+
+* Prints a single backslash
+
+```java id="c5"
+System.out.println("C:\\Users\\Admin");
+```
+
+---
+
+### 🔸 Quotes (`\'` and `\"`)
+
+* Used to print quotation marks
+
+```java id="c6"
+System.out.println("She said \"Hello\"");
+System.out.println('\'');
+```
+
+---
+
+## 🔢 Special Numeric Escape Sequences
+
+### 1. Octal Escape (`\ooo`)
+
+* Represents character using **octal (base 8) value**
+
+```java id="c7"
+System.out.println("\101");  // Output: A
+```
+
+---
+
+### 2. Unicode Escape (`\uXXXX`)
+
+* Represents character using **Unicode (hexadecimal)**
+
+```java id="c8"
+System.out.println("\u2122");  // ™ (Trademark)
+```
+
+---
+
+## ⚠️ Important Notes
+
+* Escape sequences are mainly used in:
+
+  * Strings (`" "`)
+  * Character literals (`' '`)
+
+* `\x` (hex escape like C/C++) ❌ **Not supported in Java**
+
+* Unicode (`\u`) is the standard way for special characters
+
+---
+
+## 🚀 Quick Example
+
+```java id="c9"
+class Example6 {
+    public static void main(String args[]) {
+
+        System.out.println("Hello\nWorld");
+        System.out.println("Java\tProgramming");
+        System.out.println("Path: C:\\Files\\Java");
+
+        System.out.println("Trademark: \u2122");
+        System.out.println("Octal A: \101");
+    }
+}
+```
+
+---
+
+# ✅ Summary
+
+* Escape codes start with `\`
+* Used for **special/non-typable characters**
+* Common ones: `\n`, `\t`, `\\`, `\"`, `\'`
+* Unicode (`\uXXXX`) is most powerful
+* `\x` is **not valid in Java**
+
+---

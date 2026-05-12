@@ -1,0 +1,174 @@
+# ☕ Java — Encapsulation
+
+> **Encapsulation** = **Hiding** the internal state of an object + providing **controlled access** through methods.
+
+It is one of the **4 pillars of OOP** (along with Inheritance, Polymorphism, Abstraction).
+
+---
+
+## 📌 Real World Analogy
+
+> Think of a **TV remote** —
+> You press buttons (public methods) to change channel or volume.
+> You can't directly touch the internal circuit (private fields).
+> The internal wiring is **hidden**, but you still **control** it via buttons.
+
+---
+
+## 📌 Why Encapsulation?
+
+```java
+// ❌ Without Encapsulation — fields are public
+class BankAccount {
+    public String owner;
+    public double balance;
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BankAccount acc = new BankAccount();
+        acc.balance = -99999;  // ❌ Anyone can set invalid data!
+        acc.owner = null;      // ❌ No control at all
+    }
+}
+```
+
+```java
+// ✅ With Encapsulation — fields are private, access via methods
+class BankAccount {
+    private String owner;
+    private double balance;
+
+    public void setBalance(double balance) {
+        if (balance >= 0) {          // ✅ Validation added
+            this.balance = balance;
+        } else {
+            System.out.println("Invalid balance!");
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+```
+
+---
+
+## 📌 Full Example
+
+```java
+class Student {
+    // Step 1 — make fields private
+    private String name;
+    private int age;
+    private double percentage;
+
+    // Step 2 — provide public setters (with validation)
+    public void setName(String name) {
+        if (name != null && !name.isEmpty()) {
+            this.name = name;
+        } else {
+            System.out.println("Invalid name!");
+        }
+    }
+
+    public void setAge(int age) {
+        if (age > 0 && age < 150) {
+            this.age = age;
+        } else {
+            System.out.println("Invalid age!");
+        }
+    }
+
+    public void setPercentage(double percentage) {
+        if (percentage >= 0 && percentage <= 100) {
+            this.percentage = percentage;
+        } else {
+            System.out.println("Invalid percentage!");
+        }
+    }
+
+    // Step 3 — provide public getters
+    public String getName()       { return name; }
+    public int getAge()           { return age; }
+    public double getPercentage() { return percentage; }
+
+    public void display() {
+        System.out.println("Name       : " + name);
+        System.out.println("Age        : " + age);
+        System.out.println("Percentage : " + percentage);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+
+        s1.setName("Raghav");
+        s1.setAge(20);
+        s1.setPercentage(96.5);
+        s1.display();
+
+        s1.setAge(-10);       // Invalid age!
+        s1.setPercentage(150); // Invalid percentage!
+    }
+}
+```
+
+**Output:**
+```
+Name       : Raghav
+Age        : 20
+Percentage : 96.5
+Invalid age!
+Invalid percentage!
+```
+
+---
+
+## 📌 How to Achieve Encapsulation
+
+| Step | What to do |
+|---|---|
+| Step 1 | Declare fields as `private` |
+| Step 2 | Provide `public` setter methods (with validation) |
+| Step 3 | Provide `public` getter methods |
+
+---
+
+## 📌 Access Modifiers in Encapsulation
+
+| Modifier | Who can access |
+|---|---|
+| `private` | Only inside the same class ✅ (use for fields) |
+| `public` | Everyone (use for getters/setters) |
+| `protected` | Same package + subclasses (used in Inheritance) |
+| default | Same package only |
+
+> ⚠️ In encapsulation, **fields are always `private`** and **methods are `public`**.
+> `protected` is mainly used in **Inheritance**, not encapsulation.
+
+---
+
+## 📌 Benefits of Encapsulation
+
+- ✅ **Data Protection** — invalid data can be blocked via validation
+- ✅ **Control** — you decide what can be read or changed
+- ✅ **Flexibility** — internal implementation can change without affecting outside code
+- ✅ **Maintainability** — easier to debug and update
+- ✅ **Security** — sensitive data stays hidden
+
+---
+
+## 🧠 Quick Recap
+
+```
+Encapsulation   →  Hide fields + control access
+private fields  →  Cannot be accessed directly from outside
+public getter   →  Read the value
+public setter   →  Set the value with validation
+Goal            →  Protect internal state from invalid/unwanted changes
+```
+
+---

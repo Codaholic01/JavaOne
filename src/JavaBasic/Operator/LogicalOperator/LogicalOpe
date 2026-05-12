@@ -1,0 +1,255 @@
+# 📦 Package: AboutJava
+
+# 📄 File: LogicalAndBitwiseOperators
+
+---
+
+# 🔗 Logical & Bitwise Operators in Java
+
+> These operators are used to perform operations on **boolean values** and **bits (binary level)**.
+
+---
+
+# 🧠 1. Logical Operators (Boolean Level)
+
+Used when working with **true / false conditions**.
+
+Assume:
+
+```java id="a1"
+boolean a = true;
+boolean b = false;
+```
+
+| Operator | Name | Example  | Result |    |   |    |      |
+| -------- | ---- | -------- | ------ | -- | - | -- | ---- |
+| `&&`     | AND  | `a && b` | false  |    |   |    |      |
+| `        |      | `        | OR     | `a |   | b` | true |
+| `!`      | NOT  | `!a`     | false  |    |   |    |      |
+
+---
+
+## ⚙️ Explanation
+
+### 🔗 AND (`&&`)
+
+* True only if **both conditions are true**
+
+```java id="a2"
+true && true  // true
+true && false // false
+```
+
+---
+
+### 🔀 OR (`||`)
+
+* True if **at least one condition is true**
+
+```java id="a3"
+true || false // true
+false || false // false
+```
+
+---
+
+### 🔄 NOT (`!`)
+
+* Reverses the value
+
+```java id="a4"
+!true  // false
+!false // true
+```
+
+---
+
+## ⚠️ Important Concept: Short-Circuit
+
+* `&&` and `||` use **short-circuit evaluation**
+
+```java id="a5"
+if (false && (10 / 0 > 1)) {
+    // second condition will NOT execute
+}
+```
+
+👉 Improves performance + avoids errors
+
+---
+
+# ⚙️ 2. Bitwise Operators (Binary Level)
+
+Work on **bits (0s and 1s)**
+
+Assume:
+
+```java id="a6"
+int x = 5;  // 0101
+int y = 3;  // 0011
+```
+
+---
+
+## 🔢 Bitwise Operators
+
+| Operator | Name | Example | Result |    |   |
+| -------- | ---- | ------- | ------ | -- | - |
+| `&`      | AND  | `x & y` | 1      |    |   |
+| `        | `    | OR      | `x     | y` | 7 |
+| `^`      | XOR  | `x ^ y` | 6      |    |   |
+| `~`      | NOT  | `~x`    | -6     |    |   |
+
+---
+
+## ⚙️ Explanation
+
+### 🔗 AND (`&`)
+
+* Bit is 1 only if **both bits are 1**
+
+```
+0101
+0011
+----
+0001 → 1
+```
+
+---
+
+### 🔀 OR (`|`)
+
+* Bit is 1 if **any one bit is 1**
+
+```
+0101
+0011
+----
+0111 → 7
+```
+
+---
+
+### 🔁 XOR (`^`)
+
+* Bit is 1 if **bits are different**
+
+```
+0101
+0011
+----
+0110 → 6
+```
+
+---
+
+### 🔄 XNOR (Not Direct in Java ❗)
+
+* XNOR = opposite of XOR
+* Formula:
+
+```java id="a7"
+int result = ~(x ^ y);
+```
+
+---
+
+# 🔄 3. Shift Operators
+
+Used to shift bits left or right
+
+---
+
+## 📊 Types of Shift Operators
+
+| Operator | Name           | Example   |
+| -------- | -------------- | --------- |
+| `<<`     | Left Shift     | `x << 1`  |
+| `>>`     | Right Shift    | `x >> 1`  |
+| `>>>`    | Unsigned Right | `x >>> 1` |
+
+---
+
+## ⚙️ Explanation
+
+### ⬅️ Left Shift (`<<`)
+
+* Shifts bits to left
+* Multiplies by 2 (approx)
+
+```java id="a8"
+int x = 5;   // 0101
+x << 1;      // 1010 → 10
+```
+
+---
+
+### ➡️ Right Shift (`>>`)
+
+* Shifts bits to right
+* Divides by 2 (approx)
+
+```java id="a9"
+int x = 5;   // 0101
+x >> 1;      // 0010 → 2
+```
+
+---
+
+### ⚡ Unsigned Right Shift (`>>>`)
+
+* Fills left bits with 0 (no sign bit)
+
+```java id="a10"
+int x = -5;
+x >>> 1;
+```
+
+---
+
+# ⚠️ Important Points
+
+* Logical operators → work on **boolean**
+* Bitwise operators → work on **integers (bits)**
+* XOR is very useful in:
+
+  * Swapping numbers
+  * Finding unique elements
+
+---
+
+## 🚀 Quick Example
+
+```java id="a11"
+class Demo {
+    public static void main(String[] args) {
+
+        // Logical
+        System.out.println(true && false); // false
+        System.out.println(true || false); // true
+        System.out.println(!true);         // false
+
+        // Bitwise
+        int x = 5, y = 3;
+        System.out.println(x & y); // 1
+        System.out.println(x | y); // 7
+        System.out.println(x ^ y); // 6
+
+        // Shift
+        System.out.println(x << 1); // 10
+        System.out.println(x >> 1); // 2
+    }
+}
+```
+
+---
+
+# ✅ Summary
+
+* Logical operators → `&&`, `||`, `!` (boolean logic)
+* Bitwise operators → `&`, `|`, `^`, `~` (binary operations)
+* XNOR → done using `~(x ^ y)`
+* Shift operators → `<<`, `>>`, `>>>`
+* Important for **conditions + low-level logic**
+
+---

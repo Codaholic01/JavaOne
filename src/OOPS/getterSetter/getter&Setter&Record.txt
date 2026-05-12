@@ -1,0 +1,181 @@
+# ☕ Java — Getters, Setters & Records
+
+> **Encapsulation** = Hide data using `private` + provide controlled access using **Getters & Setters**.
+
+---
+
+## 📌 Why Getters & Setters?
+
+```java
+// ❌ Bad — fields are public, anyone can change directly
+class Student {
+    public String name;
+    public int age;
+}
+
+Student s = new Student();
+s.age = -200;  // ❌ No validation, invalid data allowed!
+```
+
+```java
+// ✅ Good — fields are private, controlled access via methods
+class Student {
+    private String name;
+    private int age;
+
+    // Setter — set value with validation
+    public void setAge(int age) {
+        if (age > 0) {
+            this.age = age;
+        } else {
+            System.out.println("Invalid age!");
+        }
+    }
+
+    // Getter — get value
+    public int getAge() {
+        return age;
+    }
+}
+```
+
+---
+
+## 📌 Getter & Setter — Full Example
+
+```java
+class Student {
+    private String name;
+    private int age;
+    private double percentage;
+
+    // Setters
+    public void setName(String name)           { this.name = name; }
+    public void setAge(int age)                { if (age > 0) this.age = age; }
+    public void setPercentage(double percentage) {
+        if (percentage >= 0 && percentage <= 100) this.percentage = percentage;
+    }
+
+    // Getters
+    public String getName()       { return name; }
+    public int getAge()           { return age; }
+    public double getPercentage() { return percentage; }
+
+    public void display() {
+        System.out.println("Name       : " + name);
+        System.out.println("Age        : " + age);
+        System.out.println("Percentage : " + percentage);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+
+        s1.setName("Raghav");
+        s1.setAge(20);
+        s1.setPercentage(96.5);
+
+        s1.display();
+
+        // Direct access blocked
+        // s1.age = -200; ❌ ERROR — private field
+    }
+}
+```
+
+**Output:**
+```
+Name       : Raghav
+Age        : 20
+Percentage : 96.5
+```
+
+---
+
+## 📌 Naming Convention
+
+| Type | Format | Example |
+|---|---|---|
+| Getter | `get` + FieldName | `getName()`, `getAge()` |
+| Setter | `set` + FieldName | `setName()`, `setAge()` |
+| Boolean Getter | `is` + FieldName | `isActive()`, `isValid()` |
+
+---
+
+## 📌 Record — Java 16+
+
+> A **Record** is a special short class for storing data.
+> Java automatically generates — Constructor, Getters, `toString()`, `equals()`, `hashCode()`.
+
+```java
+// ✅ Normal class needs a lot of code
+class Point {
+    private int x;
+    private int y;
+
+    Point(int x, int y) { this.x = x; this.y = y; }
+    public int getX()   { return x; }
+    public int getY()   { return y; }
+}
+
+// ✅ Record does the same in ONE line!
+record Point(int x, int y) {}
+```
+
+### Record — Full Example
+
+```java
+record Student(String name, int age, double percentage) {}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student("Raghav", 20, 96.5);
+
+        // Getters auto-generated (no "get" prefix in records)
+        System.out.println(s1.name());        // Raghav
+        System.out.println(s1.age());         // 20
+        System.out.println(s1.percentage());  // 96.5
+
+        // toString() auto-generated
+        System.out.println(s1);  // Student[name=Raghav, age=20, percentage=96.5]
+    }
+}
+```
+
+---
+
+## ⚠️ Record — Important Rules
+
+| Rule | Detail |
+|---|---|
+| Fields are `private final` | Cannot be changed after creation (immutable) |
+| No setters | Records are **read-only** by design |
+| Getter name | Same as field name — `name()` not `getName()` |
+| Can't extend | Records cannot extend other classes |
+| Can implement | Records can implement interfaces |
+
+---
+
+## 📌 Getter & Setter vs Record
+
+| Feature                     | Class + Getter/Setter          | Record |
+|---|---|---|
+| Mutable (changeable)         | ✅ Yes                        | ❌ No (immutable) |
+| Boilerplate code             | ❌ More code                  | ✅ Very short |
+| Validation in setter         | ✅ Yes                        | ❌ Not directly |
+| Use case                     | Data that changes             | Data that is fixed |
+| Java version                 | All versions                   | Java 16+ |
+
+---
+
+## 🧠 Quick Recap
+
+```
+private fields     →  Data hidden from outside
+Getter             →  Read the value  (getX())
+Setter             →  Set the value with validation (setX())
+Record             →  Auto-generates constructor, getters, toString()
+Record is immutable →  Values cannot be changed after creation
+```
+

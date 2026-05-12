@@ -1,0 +1,176 @@
+# 📦 Package: AboutJava
+
+# 📄 File: Variables
+
+---
+
+# 🔢 Variables in Java
+
+> A **variable** is a named memory location used to store data temporarily during program execution.
+
+As the name suggests, the value of a variable **can change** while the program is running (unlike constants).
+
+---
+
+## 🧠 Key Idea
+
+* Variable = **container for data**
+* Stored in **memory**
+* Value can be **updated anytime**
+
+---
+
+## 🧾 Syntax of Variable Declaration
+
+```java
+dataType variableName = value;
+```
+
+### Example:
+
+```java
+int age = 20;
+String name = "Shreekant";
+```
+
+---
+
+## ⚙️ How Variables Work Internally
+
+* When a variable is created:
+
+  * Memory is allocated
+  * Value is stored in that memory
+* Variable name acts as a **reference to that memory location**
+
+---
+
+## 🔄 Types of Variables in Java
+
+### 1. 📍 Local Variables
+
+* Declared inside methods
+* Accessible only within that method
+* Must be initialized before use
+
+```java
+void display() {
+    int x = 10;  // local variable
+}
+```
+
+---
+
+### 2. 🏷️ Instance Variables
+
+* Declared inside class, outside methods
+* Belong to object (instance of class)
+* Each object has its own copy
+
+```java
+class Student {
+    int marks;  // instance variable
+}
+```
+
+---
+
+### 3. 🏢 Static Variables (Class Variables)
+
+* Declared using `static` keyword
+* Shared among all objects
+* Only one copy exists
+
+```java
+class Student {
+    static String college = "ABC College";
+}
+```
+
+---
+
+## 🔤 Data Types of Variables
+
+### 1. Primitive Types
+
+* Store actual values
+* Faster and memory efficient
+
+Examples:
+
+* `int`, `float`, `double`, `char`, `boolean`
+
+---
+
+### 2. Non-Primitive Types
+
+* Store **reference (address)** of object
+* Created using classes
+
+Examples:
+
+* `String`, Arrays, Objects
+
+---
+
+## 🔄 Variable vs Constant
+
+| Feature | Variable           | Constant        |
+| ------- | ------------------ | --------------- |
+| Value   | Can change         | Cannot change   |
+| Keyword | Normal declaration | `final` keyword |
+
+```java
+final int MAX = 100;
+```
+
+---
+
+## ⚠️ Important Rules
+
+* Variable names cannot start with numbers
+* Cannot use Java keywords (`int`, `class`, etc.)
+* Case-sensitive (`age` ≠ `Age`)
+* Use meaningful names (good practice)
+
+---
+
+## 💡 Best Practices
+
+* Use clear naming:
+
+  ```java
+  int studentAge;   // good
+  int x;            // avoid
+  ```
+
+* Initialize variables before use
+
+* Keep scope as small as possible
+
+---
+
+## 🚀 Quick Example
+
+```java
+class Demo {
+    public static void main(String[] args) {
+        int number = 10;
+        number = 20;  // value changed
+
+        System.out.println(number);
+    }
+}
+```
+
+---
+
+# ✅ Summary
+
+* Variable = **named memory location**
+* Stores data temporarily
+* Value can change during execution
+* Types: **Local, Instance, Static**
+* Works with **primitive & non-primitive data types**
+
+---

@@ -1,0 +1,172 @@
+# 📦 Package: javabasic.core
+
+# 📄 File: VariableScope
+
+---
+
+# 📍 Scope & Lifetime of Variables in Java
+
+> **Scope** defines *where a variable can be accessed*
+> **Lifetime** defines *how long a variable exists in memory*
+
+---
+
+# 🧠 Key Idea
+
+* Scope = **visibility of variable**
+* Lifetime = **duration of existence**
+
+---
+
+# 🔢 Types of Variables (Based on Scope)
+
+---
+
+## 1. 📍 Local Variables
+
+> Declared inside methods, constructors, or blocks
+
+```java id="vs1"
+void display() {
+    int x = 10;  // local variable
+    System.out.println(x);
+}
+```
+
+### ✅ Scope
+
+* Only accessible **inside the method/block**
+
+### ⏳ Lifetime
+
+* Created when method starts
+* Destroyed when method ends
+
+---
+
+## 2. 🏷️ Instance Variables
+
+> Declared inside class, outside methods
+
+```java id="vs2"
+class Student {
+    int marks;  // instance variable
+}
+```
+
+### ✅ Scope
+
+* Accessible throughout the class
+* Accessed using **object**
+
+### ⏳ Lifetime
+
+* Exists as long as **object exists**
+
+---
+
+## 3. 🏢 Static Variables (Class Variables)
+
+> Declared using `static` keyword
+
+```java id="vs3"
+class Student {
+    static String college = "ABC";
+}
+```
+
+### ✅ Scope
+
+* Shared across all objects
+* Access using class name
+
+### ⏳ Lifetime
+
+* Exists from **class loading to program end**
+
+---
+
+# 🧱 Block Scope (Important)
+
+> Variables declared inside `{ }` are limited to that block
+
+```java id="vs4"
+if (true) {
+    int x = 5;
+}
+// x is NOT accessible here
+```
+
+---
+
+# ⚠️ Important Points
+
+* Local variables must be **initialized before use**
+* Instance & static variables get **default values**
+* Same variable name can exist in different scopes
+
+---
+
+# 🔄 Example (Scope Understanding)
+
+```java id="vs5"
+class Demo {
+    int a = 10;  // instance variable
+
+    void show() {
+        int b = 5;  // local variable
+        System.out.println(a + b);
+    }
+}
+```
+
+---
+
+# 🔗 Related Topics (Very Important)
+
+👉 Connected concepts:
+
+* **Variables** → base concept
+* **Data Types** → defines variable type
+* **Control Statements** → block scope usage
+* **OOP (Encapsulation)** → instance variables used in classes
+* **Memory (Stack vs Heap)** → scope affects storage
+
+---
+
+# 🧠 Real Understanding
+
+* Local → temporary work
+* Instance → object data
+* Static → shared/common data
+
+---
+
+# 🚀 Quick Example
+
+```java id="vs6"
+class Test {
+    static int count = 0;
+
+    void increment() {
+        int local = 1;
+        count++;
+        System.out.println(count + " " + local);
+    }
+}
+```
+
+---
+
+# ✅ Summary
+
+* Scope = where variable is accessible
+* Lifetime = how long variable exists
+* Types:
+
+  * Local → method level
+  * Instance → object level
+  * Static → class level
+* Block scope restricts access
+
+---

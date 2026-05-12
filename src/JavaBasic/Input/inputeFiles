@@ -1,0 +1,131 @@
+# 📦 Package: javabasic.input
+
+# 📄 File: InputInJava
+
+---
+
+# ⌨️ Input in Java
+
+> **Input** means taking data from the user during program execution.
+
+Java provides multiple ways to take input depending on use case:
+
+* Console input
+* Buffered input
+* GUI input
+
+---
+
+# 🧠 Key Idea
+
+* Input is required for **dynamic programs**
+* Different methods = different performance & usage
+
+---
+
+# 🔢 Types of Input Methods
+
+---
+
+## 1. 📥 Scanner (Most Common)
+
+> Used for simple and easy input from console
+
+```java id="in1"
+import java.util.Scanner;
+
+Scanner sc = new Scanner(System.in);
+int num = sc.nextInt();
+```
+
+### ✅ Features
+
+* Easy to use
+* Supports multiple data types
+* Slower than BufferedReader
+
+---
+
+## 2. 📄 BufferedReader (Fast Input)
+
+> Used for faster input (mainly in competitive programming)
+
+```java id="in2"
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+String input = br.readLine();
+```
+
+### ✅ Features
+
+* Faster than Scanner
+* Reads input as **String**
+* Needs manual conversion
+
+---
+
+## 3. 🖥️ Swing Input (GUI Based)
+
+> Used for graphical input dialog
+
+```java id="in3"
+import javax.swing.JOptionPane;
+
+String name = JOptionPane.showInputDialog("Enter your name");
+```
+
+### ✅ Features
+
+* GUI-based input
+* User-friendly
+* Not used in backend/console apps
+
+---
+
+# ⚠️ Important Points
+
+* Scanner → easy but slower
+* BufferedReader → fast but complex
+* Swing → GUI only
+
+---
+
+# 🔗 Related Topics (Very Important)
+
+👉 Connected concepts:
+
+* **Data Types** → input type depends on variable
+
+* **Type Casting** → convert String to int
+
+  ```java
+  int num = Integer.parseInt(input);
+  ```
+
+* **Exception Handling** → input errors
+
+* **Control Statements** → decision based on input
+
+---
+
+# 🧠 Real Understanding
+
+* Use Scanner → learning / basic programs
+* Use BufferedReader → performance cases
+* Use Swing → GUI applications
+
+---
+
+# ✅ Summary
+
+* Input is used to take data from user
+* 3 main ways:
+
+  * Scanner (easy)
+  * BufferedReader (fast)
+  * Swing (GUI)
+* Choose method based on requirement
+
+---
